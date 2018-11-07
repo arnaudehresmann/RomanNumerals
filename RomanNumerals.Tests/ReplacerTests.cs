@@ -58,5 +58,29 @@ namespace RomanNumerals.Tests
             string actual = this.replacer.Replace("MXLIII");
             Assert.AreEqual("MXXXXIII", actual);
         }
+
+        [TestMethod]
+        public void ReplaceXCIsReplaced() {
+            string actual = this.replacer.Replace("MMXCV");
+            Assert.AreEqual("MMLXXXXV", actual);
+        }
+
+        [TestMethod]
+        public void ReplaceCDIsReplaced() {
+            string actual = this.replacer.Replace("MMCDXIII");
+            Assert.AreEqual("MMCCCCXIII", actual);
+        }
+
+        [TestMethod]
+        public void ReplaceCMIsReplaced() {
+            string actual = this.replacer.Replace("MCMXIII");
+            Assert.AreEqual("MDCCCCXIII", actual);
+        }
+
+        [TestMethod]
+        public void ReplaceMultiple() {
+            string actual = this.replacer.Replace("MCMXLIV");
+            Assert.AreEqual("MDCCCCXXXXIIII", actual);
+        }
     }
 }

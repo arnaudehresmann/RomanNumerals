@@ -18,9 +18,10 @@ namespace RomanNumerals
         }
 
         public string Replace(string romanNumeral) {
-            string replacedNumeral = romanNumeral.Replace("IV", this.GetReplacement("IV"));
-            replacedNumeral = replacedNumeral.Replace("IX", this.GetReplacement("IX"));
-            replacedNumeral = replacedNumeral.Replace("XL", this.GetReplacement("XL"));
+            string replacedNumeral = romanNumeral;
+            foreach(var numeral in replacements) {
+                replacedNumeral = replacedNumeral.Replace(numeral.Key, numeral.Value);
+            }
             return replacedNumeral;
         }
     }
